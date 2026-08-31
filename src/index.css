@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Centralized CSS Variables for Light & Dark Themes */
+:root {
+  --bg-app: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-secondary: #F1F5F9;
+  --primary-color: #2563EB;
+  --primary-hover: #1D4ED8;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --border-color: #E5E7EB;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+html.dark, .dark {
+  --bg-app: #121212;
+  --bg-surface: #1E1E1E;
+  --bg-secondary: #2A2A2A;
+  --primary-color: #3B82F6;
+  --primary-hover: #2563EB;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B3B3B3;
+  --border-color: #333333;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Smooth 250ms transitions for theme switching */
+*, *::before, *::after {
+  transition: background-color 250ms ease, border-color 250ms ease, color 250ms ease, fill 250ms ease, stroke 250ms ease;
+}
+
+@layer base {
+  html {
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+  }
+
+  body {
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+}
+
+/* Comprehensive Dark Mode Global Component Overrides */
+html.dark body {
+  background-color: #121212 !important;
+  color: #FFFFFF !important;
+}
+
+/* Cards & Surface Containers in Dark Mode */
+html.dark .bg-white,
+html.dark .bg-white\/80,
+html.dark .bg-white\/90,
+html.dark .bg-white\/95,
+html.dark header,
+html.dark aside,
+html.dark nav,
+html.dark .ambient-shadow,
+html.dark .glass-panel {
+  background-color: #1E1E1E !important;
+  color: #FFFFFF !important;
+}
+
+/* Secondary Surface Elements in Dark Mode */
+html.dark .bg-slate-50,
+html.dark .bg-slate-100,
+html.dark .bg-slate-200,
+html.dark .bg-gray-50,
+html.dark .bg-gray-100,
+html.dark .bg-sky-50,
+html.dark .bg-sky-50\/40,
+html.dark .bg-[#f8fafc],
+html.dark .bg-[#f8f9fa],
+html.dark .bg-[#000613],
+html.dark .bg-[#0b0f19] {
+  background-color: #2A2A2A !important;
+}
+
+/* Text Overrides in Dark Mode */
+html.dark .text-[#000613],
+html.dark .text-slate-900,
+html.dark .text-slate-800,
+html.dark .text-slate-700,
+html.dark .text-gray-900,
+html.dark .text-gray-800,
+html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
+  color: #FFFFFF !important;
+}
+
+html.dark .text-[#5c5f61],
+html.dark .text-slate-600,
+html.dark .text-slate-500,
+html.dark .text-gray-600,
+html.dark .text-gray-500 {
+  color: #B3B3B3 !important;
+}
+
+/* Border Overrides in Dark Mode */
+html.dark .border,
+html.dark .border-b,
+html.dark .border-t,
+html.dark .border-l,
+html.dark .border-r,
+html.dark .border-slate-100,
+html.dark .border-slate-200,
+html.dark .border-slate-300,
+html.dark .border-slate-700,
+html.dark .border-slate-800,
+html.dark .border-gray-200,
+html.dark .border-gray-300,
+html.dark .border-[#e2e2e2] {
+  border-color: #333333 !important;
+}
+
+/* Inputs, Selects & Textareas in Dark Mode */
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #2A2A2A !important;
+  color: #FFFFFF !important;
+  border-color: #333333 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #737373 !important;
+}
+
+/* Table styling in Dark Mode */
+html.dark table thead,
+html.dark table th {
+  background-color: #121212 !important;
+  color: #B3B3B3 !important;
+  border-color: #333333 !important;
+}
+
+html.dark table tbody tr {
+  border-color: #333333 !important;
+  background-color: #1E1E1E !important;
+  color: #FFFFFF !important;
+}
+
+html.dark table tbody tr:hover {
+  background-color: #2A2A2A !important;
+}
+
+/* Modals & Dialog Backdrop in Dark Mode */
+html.dark .modal-content,
+html.dark [role="dialog"] {
+  background-color: #1E1E1E !important;
+  border-color: #333333 !important;
+  color: #FFFFFF !important;
+}
+
+/* Buttons in Dark Mode */
+html.dark .bg-[#001F3F],
+html.dark .bg-sky-600,
+html.dark .bg-blue-600 {
+  background-color: #3B82F6 !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .bg-[#001F3F]:hover,
+html.dark .bg-sky-600:hover,
+html.dark .bg-blue-600:hover {
+  background-color: #2563EB !important;
+}
+
+/* Custom ambient shadow matching design system */
+.ambient-shadow {
+  box-shadow: 0px 4px 20px var(--shadow-color);
+}
+
+.modal-shadow {
+  box-shadow: 0px 12px 32px var(--shadow-color);
+}
+
+.glass-panel {
+  background: var(--bg-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #333333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #444444;
+}
+
+/* Explicit exemption for PDF Sheet / Printable Document from Dark Mode */
+html.dark .pdf-document-root,
+html.dark .pdf-document-root *,
+html.dark #printable-pdf-content,
+html.dark #printable-pdf-content * {
+  background-color: revert !important;
+  color: revert !important;
+  border-color: revert !important;
+}
+
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-pdf-content,
+  #printable-pdf-content * {
+    visibility: visible !important;
+  }
+
+  #printable-pdf-content {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}

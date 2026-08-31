@@ -1,0 +1,6 @@
+{
+  "name": "ITALCAR CRM",
+  "description": "Application CRM haut de gamme pour concession automobile avec direction financière, inventaire, ventes, prospects, gestion des utilisateurs et paramètres.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

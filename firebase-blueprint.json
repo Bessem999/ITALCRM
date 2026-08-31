@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "vehicles": {
+      "title": "Vehicles",
+      "description": "Vehicle inventory records",
+      "type": "object",
+      "properties": {
+        "model": { "type": "string" },
+        "category": { "type": "string" },
+        "salePrice": { "type": "number" },
+        "costPrice": { "type": "number" },
+        "marginDt": { "type": "number" },
+        "marginPercent": { "type": "number" },
+        "stockCount": { "type": "number" },
+        "status": { "type": "string" },
+        "image": { "type": "string" },
+        "year": { "type": "number" },
+        "fuelType": { "type": "string" }
+      },
+      "required": ["model", "salePrice", "status"]
+    },
+    "leads": {
+      "title": "Leads",
+      "description": "Customer lead records",
+      "type": "object",
+      "properties": {
+        "clientName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "interestedModel": { "type": "string" },
+        "status": { "type": "string" },
+        "estimatedValueDt": { "type": "number" },
+        "assignedAgent": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["clientName", "status"]
+    },
+    "reservations": {
+      "title": "Reservations",
+      "description": "Test drive and visit reservations",
+      "type": "object",
+      "properties": {
+        "clientName": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "vehicleId": { "type": "string" },
+        "vehicleModel": { "type": "string" },
+        "type": { "type": "string" },
+        "date": { "type": "string" },
+        "timeSlot": { "type": "string" },
+        "assignedAgent": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["clientName", "date", "status"]
+    }
+  }
+}
